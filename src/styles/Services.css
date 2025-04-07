@@ -1,0 +1,317 @@
+/* Services Section - Semi-transparent to show hero background */
+.services-section {
+  padding: 120px 0 80px;
+  position: relative;
+  z-index: 2;
+  margin-top: 100vh; /* Push down to start after hero */
+  background-color: transparent;
+}
+
+.services-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.6) 100%);
+  z-index: -1;
+}
+
+.services-section h2 {
+  color: #002147; /* Dark navy blue color */
+  font-size: 2.8rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  font-weight: 700;
+}
+
+.services-section h3 {
+  color: var(--brand-primary);
+  font-size: 2rem;
+  margin: 2rem 0 1.2rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.about-intro, .philosophy, .vision, .core-values, .services {
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(5px);
+  border-radius: 10px;
+  margin-bottom: 2rem;
+  padding: 2rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.about-intro p, .philosophy p, .vision p, .services > p {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: var(--brand-dark);
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  font-weight: 500;
+}
+
+.core-values ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 2rem 0;
+  padding: 0;
+  list-style: none;
+}
+
+.core-values h3 {
+  color: #002147; /* Dark navy blue */
+}
+
+.core-values li {
+  background: #002147; /* Dark navy blue instead of gradient-blue */
+  color: var(--brand-light);
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.core-values li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.service-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2.5rem;
+  margin-top: 3rem;
+}
+
+.service-card {
+  background-color: var(--brand-light);
+  border-radius: 10px;
+  padding: 2.5rem;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: #002147; /* Dark navy blue instead of gradient-blue */
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+.service-card h3 {
+  color: #002147; /* Dark navy blue instead of brand-primary */
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  position: relative;
+  padding-bottom: 0.8rem;
+}
+
+.service-card h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 2px;
+  background-color: #002147; /* Dark navy blue instead of brand-secondary */
+}
+
+.service-card ul {
+  padding-left: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.service-card li {
+  margin-bottom: 1rem;
+  position: relative;
+  padding-left: 0.5rem;
+}
+
+.service-card li::before {
+  content: '✓';
+  color: var(--brand-primary);
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+.service-card p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+/* Media Queries */
+@media (max-width: 992px) {
+  .service-cards {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+  
+  .about-intro, .philosophy, .vision, .core-values, .services {
+    padding: 1.8rem;
+  }
+  
+  .about-intro p, .philosophy p, .vision p, .services > p {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .services-section {
+    padding: 100px 0 60px;
+  }
+  
+  .services-section h2 {
+    font-size: 2.2rem;
+  }
+  
+  .services-section h3 {
+    font-size: 1.6rem;
+  }
+  
+  .service-cards {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .service-card {
+    padding: 2rem;
+  }
+  
+  .core-values ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .core-values li {
+    width: 80%;
+    text-align: center;
+  }
+  
+  .about-intro, .philosophy, .vision, .core-values, .services {
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .about-intro p, .philosophy p, .vision p, .services > p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .services-section {
+    padding: 80px 0 40px;
+  }
+  
+  .services-section h2 {
+    font-size: 1.8rem;
+  }
+  
+  .services-section h3 {
+    font-size: 1.4rem;
+    margin: 1.5rem 0 1rem;
+  }
+  
+  .service-card {
+    padding: 1.5rem;
+  }
+  
+  .service-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .service-card p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+  .service-card ul {
+    padding-left: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .service-card li {
+    margin-bottom: 0.8rem;
+    font-size: 0.95rem;
+  }
+  
+  .core-values li {
+    width: 100%;
+    padding: 0.8rem 1.5rem;
+    font-size: 0.95rem;
+  }
+  
+  .about-intro, .philosophy, .vision, .core-values, .services {
+    padding: 1.2rem;
+    margin-bottom: 1.2rem;
+    border-radius: 8px;
+  }
+}
+
+/* For very small screens */
+@media (max-width: 360px) {
+  .services-section h2 {
+    font-size: 1.6rem;
+  }
+  
+  .services-section h3 {
+    font-size: 1.2rem;
+  }
+  
+  .service-card {
+    padding: 1.2rem;
+  }
+  
+  .service-card h3 {
+    font-size: 1.2rem;
+  }
+  
+  .about-intro p, .philosophy p, .vision p, .services > p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+}
+
+/* Specific styling for About Us heading */
+.about-intro .section-heading h2 {
+  color: #002147; /* Dark navy blue color - explicitly set */
+}
+
+/* Specific styling for Services heading */
+.services .section-heading h2 {
+  color: #002147; /* Dark navy blue color - explicitly set */
+}
+
+.philosophy h3,
+.vision h3 {
+  color: #002147; /* Dark navy blue */
+} 

@@ -1,0 +1,172 @@
+/* Map Section */
+.map-section {
+  padding: 100px 0 80px;
+  position: relative;
+  z-index: 2;
+  background-color: transparent;
+  overflow: hidden;
+}
+
+.map-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, 
+    rgba(245,245,245,0.95) 0%, 
+    rgba(245,245,245,0.9) 100%
+  );
+  z-index: -1;
+  backdrop-filter: blur(5px);
+}
+
+.map-section .section-heading h2 {
+  color: #002147; /* Dark navy blue color to match other headings */
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-weight: 700;
+}
+
+.map-intro {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 2.5rem;
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: var(--brand-dark);
+}
+
+.map-container {
+  width: 100%;
+  height: 450px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+  margin-bottom: 3rem;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.google-map {
+  width: 100%;
+  height: 100%;
+}
+
+.address-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.address-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+  border-top: 4px solid #002147; /* Dark navy blue accent */
+}
+
+.address-card h3 {
+  color: #002147; /* Dark navy blue */
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.address-card address {
+  font-style: normal;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.contact-details p {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Media Queries */
+@media (max-width: 992px) {
+  .map-section .section-heading h2 {
+    font-size: 2.4rem;
+  }
+  
+  .map-intro {
+    font-size: 1.1rem;
+  }
+  
+  .map-container {
+    height: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .map-section {
+    padding: 80px 0 60px;
+  }
+  
+  .map-section .section-heading h2 {
+    font-size: 2rem;
+  }
+  
+  .map-intro {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .map-container {
+    height: 350px;
+    margin-bottom: 2rem;
+  }
+  
+  .address-card {
+    padding: 1.5rem;
+  }
+  
+  .address-card h3 {
+    font-size: 1.4rem;
+  }
+  
+  .address-card address {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .map-section {
+    padding: 60px 0 40px;
+  }
+  
+  .map-section .section-heading h2 {
+    font-size: 1.8rem;
+  }
+  
+  .map-intro {
+    font-size: 0.95rem;
+  }
+  
+  .map-container {
+    height: 300px;
+    border-radius: 8px;
+  }
+  
+  .address-card {
+    padding: 1.2rem;
+    border-radius: 8px;
+  }
+  
+  .address-card h3 {
+    font-size: 1.3rem;
+  }
+  
+  .contact-details p {
+    font-size: 0.9rem;
+  }
+} 

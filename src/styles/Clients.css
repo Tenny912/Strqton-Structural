@@ -1,0 +1,254 @@
+/* Clients Section */
+.clients-section {
+  padding: 120px 0 80px;
+  position: relative;
+  z-index: 2;
+  background-color: transparent;
+  overflow: hidden;
+}
+
+.clients-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, 
+    rgba(255,255,255,0.92) 0%, 
+    rgba(255,255,255,0.85) 100%
+  );
+  z-index: -1;
+  backdrop-filter: blur(5px);
+}
+
+.clients-section .section-heading h2 {
+  color: #002147; /* Dark navy blue color for the heading */
+  font-weight: 700;
+}
+
+.clients-intro {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: var(--brand-dark);
+}
+
+/* Client logos slideshow */
+.client-logos {
+  position: relative;
+  max-width: 900px;
+  margin: 2rem auto 4rem;
+  overflow: hidden;
+  padding: 1rem 0;
+}
+
+.client-logos::before,
+.client-logos::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 80px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.client-logos::before {
+  left: 0;
+  background: linear-gradient(to right, rgba(255,255,255,0.9), rgba(255,255,255,0));
+}
+
+.client-logos::after {
+  right: 0;
+  background: linear-gradient(to left, rgba(255,255,255,0.9), rgba(255,255,255,0));
+}
+
+.client-logos-container {
+  display: flex;
+  transition: transform 0.5s ease;
+  animation: slide 25s infinite linear;
+  padding: 1rem 0;
+  width: max-content;
+}
+
+.client-logos-container:hover {
+  animation-play-state: paused;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.client-logo {
+  width: 250px;
+  height: 250px;
+  flex: 0 0 auto;
+  background-color: #002855; /* Navy blue background */
+  border-radius: 50%; /* Make it circular */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 6px solid rgba(255, 255, 255, 0.9);
+  margin: 1rem 2rem;
+}
+
+.client-logo img {
+  max-width: 90%;
+  max-height: 90%;
+  transition: transform 0.5s ease, filter 0.5s ease;
+  filter: brightness(0) invert(1); /* Make logos white */
+  object-fit: contain;
+}
+
+.client-logo:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+  border-color: var(--brand-secondary);
+}
+
+.client-logo:hover img {
+  filter: brightness(0) invert(1);
+  transform: scale(1.1);
+}
+
+.client-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--brand-secondary);
+  color: var(--brand-dark);
+  padding: 1rem;
+  transform: translateY(100%);
+  transition: transform 0.4s ease;
+  text-align: center;
+}
+
+.client-logo:hover .client-overlay {
+  transform: translateY(0);
+}
+
+.client-overlay h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.client-overlay p {
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.client-testimonial {
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  padding: 3rem;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.client-testimonial::before {
+  content: '"';
+  position: absolute;
+  top: 1rem;
+  left: 2rem;
+  font-size: 8rem;
+  color: var(--brand-primary);
+  opacity: 0.15;
+  font-family: Georgia, serif;
+  line-height: 1;
+}
+
+.client-testimonial blockquote {
+  margin: 0;
+  font-size: 1.3rem;
+  line-height: 1.7;
+  font-style: italic;
+  color: var(--brand-dark);
+  position: relative;
+  z-index: 1;
+}
+
+.client-testimonial cite {
+  display: block;
+  margin-top: 1.5rem;
+  font-style: normal;
+  font-weight: 600;
+  color: var(--brand-primary);
+  font-size: 1.1rem;
+}
+
+/* Media Queries */
+@media (max-width: 992px) {
+  .client-logo {
+    width: 220px;
+    height: 220px;
+    padding: 1.5rem;
+  }
+  
+  .client-testimonial {
+    padding: 2.5rem;
+  }
+  
+  .client-testimonial blockquote {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .clients-section {
+    padding: 100px 0 60px;
+  }
+  
+  .client-logo {
+    width: 180px;
+    height: 180px;
+    padding: 1.2rem;
+    margin: 1rem 1.5rem;
+  }
+  
+  .client-testimonial {
+    padding: 2rem;
+  }
+  
+  .client-testimonial blockquote {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .client-logo {
+    width: 150px;
+    height: 150px;
+    padding: 1rem;
+    margin: 1rem;
+  }
+  
+  .client-testimonial {
+    padding: 1.5rem;
+  }
+  
+  .client-testimonial blockquote {
+    font-size: 1rem;
+  }
+} 
